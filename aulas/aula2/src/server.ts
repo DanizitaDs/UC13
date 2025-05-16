@@ -24,4 +24,20 @@ app.post('/sobre', (req: Request, res: Response) => {
   res.status(201).json({ mensagem: `Usuário ${nome}, ${idade},${descricao} criado com sucesso!` });
 });
 
+// 🔹 Rota POST (Criar novo usuário)
+app.post('/comentarios', (req: Request, res: Response) => {
+  const { descricao } = req.body;
+  if (!descricao) {
+    res.status(400).json({ descricao: 'Campo vazio!' });
+    return;
+  }
+  res.status(201).json({ descricao: `comentario recebido` });
+  return;
+});
+
+app.delete('/comentarios/:id', (req:Request,res: Response)=>{
+const id = req.params.id; 
+res.status(204).json({ mensagem: `Comentario deletado com sucesso!` });
+})
+
 app.listen(PORT, () => console.log(`🔥 Servidor rodando em http://localhost:${PORT}`));
