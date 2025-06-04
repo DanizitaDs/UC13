@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany ,ManyToMany, JoinTable} from "typeorm";
 import { Order } from "./Order";
+import { Dish } from "./Dish";
 
 @Entity('users')
 export class User {
@@ -19,9 +20,15 @@ export class User {
   @Column({ default: "customer" })
   private _role: string;
 
+  @Column({ length: 15, unique: true, nullable: true })  
+  private _phone: string;
+
   @OneToMany(() => Order, (order) => order.user)
   orders!: Order[];
 
+  @ManyToMany(() => Dish, (dish) => dish.usersWhoFavorited)
+  @JoinTable() 
+  favoriteDishes!: Dish[];
 
     /**
      * Getter name
@@ -79,6 +86,14 @@ export class User {
 		this._password = value;
 	}
 
+  public get phone(): string | undefined {
+    return this._phone;
+  }
+
+  public set phone(value: string) {
+    this._phone = value;
+  }
+
     /**
      * Setter role
      * @param {string} value
@@ -88,10 +103,11 @@ export class User {
 	}
 
    
-  constructor(_name:string,_email:string,_passoword:string, _role: string){
+  constructor(_name:string,_email:string,_passoword:string, _role: string,_phone: string){
     this._name=_name;
     this._email=_email;
     this._password=_passoword;
     this._role = _role;
+    this._phone=_phone;
 }
 }
