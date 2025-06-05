@@ -1,10 +1,15 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  OneToMany,
+} from "typeorm";
 import { User } from "./User";
 import { OrderItem } from "./OrderItem";
 
-@Entity('orders')
+@Entity("orders")
 export class Order {
-
   @PrimaryGeneratedColumn()
   id!: number;
 
@@ -15,31 +20,28 @@ export class Order {
   private _status: string;
 
   @ManyToOne(() => User, (user) => user.orders)
-   user!: User;
+  user!: User;
 
   @OneToMany(() => OrderItem, (orderItem) => orderItem.order)
-   items!: OrderItem[];
+  items!: OrderItem[];
 
+  /**
+   * Getter status
+   * @return {string}
+   */
+  public get status(): string {
+    return this._status;
+  }
 
-    /**
-     * Getter status
-     * @return {string}
-     */
-	public get status(): string {
-		return this._status;
-	}
+  /**
+   * Setter status
+   * @param {string} value
+   */
+  public set status(value: string) {
+    this._status = value;
+  }
 
-    /**
-     * Setter status
-     * @param {string} value
-     */
-	public set status(value: string) {
-		this._status = value;
-	}
-
-
-  constructor(_status:string){
-    this._status = _status;
-}
-
+  constructor(status: string) {
+    this._status = status;
+  }
 }
