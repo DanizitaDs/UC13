@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Biblioteca</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2> Biblioteca de Livros</h2>
+
+
+    <section>
+      <h3> Cadastrar Novo Livro</h3>
+      <form id="createForm">
+        <label for="name">Nome:</label>
+        <input type="text" name="name" required />
+
+        <label for="tipo">Tipo:</label>
+        <input type="text" name="tipo" required />
+
+        <label for="ano">Ano:</label>
+        <input type="number" name="ano" required />
+
+        <button type="submit">Cadastrar</button>
+      </form>
+    </section>
+
+
+    <section>
+      <h3> Buscar Livro por ID</h3>
+      <form id="buscarForm">
+        <label for="id">ID:</label>
+        <input type="number" name="id" required />
+        <button type="submit">Buscar</button>
+      </form>
+    </section>
+
+  
+    <section>
+      <h3> Editar Livro</h3>
+      <form id="editarForm">
+        <label for="id">ID:</label>
+        <input type="number" name="id" required />
+
+        <label for="name">Novo Nome:</label>
+        <input type="text" name="name" />
+
+        <label for="tipo">Novo Tipo:</label>
+        <input type="text" name="tipo" />
+
+        <label for="ano">Novo Ano:</label>
+        <input type="number" name="ano" />
+
+        <button type="submit">Atualizar</button>
+      </form>
+    </section>
+
+    <section>
+      <h3> Deletar Livro</h3>
+      <form id="deletarForm">
+        <label for="id">ID:</label>
+        <input type="number" name="id" required />
+        <button type="submit">Deletar</button>
+      </form>
+    </section>
+    <section>
+      <h3> Listar Todos os Livros</h3>
+      <button onclick="listarLivros()">Listar</button>
+      <a class="btn-backlogin" href="cadastrar.html"><button>Sair</button></a>
+    </section>
+
+    <div class="mensagem" id="mensagemSucesso"></div>
+    <div id="output" style="margin-top: 20px;"></div>
+  </div>
+
+<script src="./js/livros.js"></script>
+  <img src="./img/Daco_4253965.png" alt="Barbie no canto" class="footer-corner-img" />
+  <audio id="somPrincesa" muted autoplay loop>
+    <source src="./audio/swan-lake-147751.mp3" type="audio/mpeg">
+  </audio>
+</body>
+</html>
