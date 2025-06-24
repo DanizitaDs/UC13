@@ -1,13 +1,13 @@
-import { Router } from 'express';
-import {LivroController} from '../controller/livrosController';
+import { Router } from "express";
+import { LivroController } from "../controller/livrosController";
 
 const routes = Router();
 const livroController = new LivroController();
 
-routes.get('/livro', livroController.list);
-routes.post('/livro', livroController.create);
-routes.get('/livro/:id', livroController.show);
-routes.put('/livro/:id', livroController.update);
-routes.delete('/livro/:id', livroController.delete);
+routes.get("/livro", livroController.list);
+routes.post("/livro", livroController.create);
+routes.get("/livro/:id", livroController.show);
+routes.put("/livro/:id", livroController.update);
+routes.delete("/livro/:id", livroController.delete);
 
 export default routes;

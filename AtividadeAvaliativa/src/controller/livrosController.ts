@@ -1,88 +1,88 @@
-import { Request, Response } from 'express';
-import { AppDataSource } from '../database/data-source';
-import {Livro} from "../models/Livros";
-import bcryptjs from "bcryptjs"
+import { Request, Response } from "express";
+import { AppDataSource } from "../database/data-source";
+import { Livro } from "../models/Livros";
+import bcryptjs from "bcryptjs";
 
 const livroRepository = AppDataSource.getRepository(Livro);
 
 export class LivroController {
+  // Listar todos os livros
+  async list(req: Request, res: Response) {
+    const Livro = await livroRepository.find();
+    res.json(Livro);
+    return;
+  }
 
-    // Listar todos os livros
-    async list(req: Request, res: Response) {
-        const Livro = await livroRepository.find();
-        res.json(Livro);
-        return
+  // Criar novo livros
+  async create(req: Request, res: Response) {
+    const { name, tipo, ano } = req.body;
+
+    if (!name || !tipo || !ano) {
+      res.status(400).json({ message: "Todos os campos são necessários!" });
+      return;
     }
 
-    // Criar novo livros
-    async create(req: Request, res: Response) {
-        const { name, tipo, ano } = req.body;
+    const Livros = new Livro(name, tipo, ano);
+    const newlivro = await livroRepository.create(Livros);
+    await livroRepository.save(newlivro);
 
-        if(!name || !tipo || !ano) {
-            res.status(400).json({ message: "Todos os campos são necessários!" })
-            return
-        }
+    res
+      .status(201)
+      .json({ message: "livro criado com sucesso", livro: newlivro });
+    return;
+  }
 
-        const Livros = new Livro(name, tipo, ano)
-        const newlivro = await livroRepository.create(Livros)
-        await livroRepository.save(newlivro)
+  // Buscar livros por ID
+  async show(req: Request, res: Response) {
+    const { id } = req.params;
 
-        res.status(201).json({ message: "livro criado com sucesso", livro: newlivro })
-        return
+    const livro = await livroRepository.findOneBy({ id: Number(id) });
 
+    if (!livro) {
+      res.status(404).json({ message: "livro não encontrado" });
+      return;
     }
 
-    // Buscar livros por ID
-    async show(req: Request, res: Response) {
-        const { id } = req.params;
+    res.json(livro);
+    return;
+  }
 
-        const livro = await livroRepository.findOneBy({ id: Number(id) });
+  // Atualizar livros
+  async update(req: Request, res: Response) {
+    const { id } = req.params;
+    const { name, tipo, ano } = req.body;
 
-        if (!livro) {
-             res.status(404).json({ message: 'livro não encontrado' });
-             return
-        }
+    const livro = await livroRepository.findOneBy({ id: Number(id) });
 
-         res.json(livro);
-         return
+    if (!livro) {
+      res.status(404).json({ message: "livro não encontrado" });
+      return;
     }
 
-    // Atualizar livros
-    async update(req: Request, res: Response) {
-        const { id } = req.params;
-        const { name, tipo, ano } = req.body;
+    livro.name = name;
+    livro.tipo = tipo;
+    livro.ano = ano;
 
-        const livro = await livroRepository.findOneBy({ id: Number(id) });
+    await livroRepository.save(livro);
 
-        if (!livro) {
-             res.status(404).json({ message: 'livro não encontrado' });
-             return
-        }
+    res.json(livro);
+    return;
+  }
 
-        livro.name = name;
-        livro.tipo = tipo;
-        livro.ano = ano;
+  // Deletar livros
+  async delete(req: Request, res: Response) {
+    const { id } = req.params;
 
-        await livroRepository.save(livro);
+    const livro = await livroRepository.findOneBy({ id: Number(id) });
 
-        res.json(livro);
-        return
+    if (!livro) {
+      res.status(404).json({ message: "livro não encontrado" });
+      return;
     }
 
-    // Deletar livros
-    async delete(req: Request, res: Response) {
-        const { id } = req.params;
+    await livroRepository.remove(livro);
 
-        const livro = await livroRepository.findOneBy({ id: Number(id) });
-
-        if (!livro) {
-             res.status(404).json({ message: 'livro não encontrado' });
-             return
-        }
-
-        await livroRepository.remove(livro);
-
-         res.status(204).send();
-         return
-    }
+    res.status(204).send();
+    return;
+  }
 }
