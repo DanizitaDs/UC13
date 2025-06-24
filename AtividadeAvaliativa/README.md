@@ -1,4 +1,3 @@
-
 # 📚 Trabalho Avaliativo: Biblioteca
 
 Bem-vindo(a) à **Biblioteca da Danielle Yasmin Dias Padilha**, um projeto completo de cadastro e gerenciamento de livros feito com HTML, CSS, JavaScript e Node.js com banco de dados **MySQLite**. Este projeto foi desenvolvido com carinho em tons terrosos e elegantes para proporcionar uma experiência agradável 🌰📖.
@@ -31,6 +30,46 @@ Bem-vindo(a) à **Biblioteca da Danielle Yasmin Dias Padilha**, um projeto compl
 
 ---
 
+## 📁 Estrutura do Projeto
+
+```bash
+📁 AtividadeAvaliativa/
+├── 📁 node_modules/
+├── 📁 public/
+│   ├── 📁 css/
+│   │   └── style.css
+│   ├── 📁 img/
+│   │   └── biblioteca.png
+|   |   └── cafe.png
+│   ├── 📁 js/
+│   │   ├── livros.js
+│   │   └── script.js
+│   ├── 📁 music/
+│   │   └── biblioteca.mp4
+├── 📄 cadastrar.html
+├── 📄 entrar.html
+├── 📄 telaPrincipal.html
+├── 📁 src/
+│   ├── 📁 controller/
+│   │   ├── livrosController.ts
+│   │   └── userController.ts
+│   ├── 📁 database/
+│   │   └── data-source.ts
+│   ├── 📁 models/
+│   │   ├── Livros.ts
+│   │   └── user.ts
+│   ├── 📁 routes/
+│   │   ├── RoutesLivros.ts
+│   │   ├── RoutesUser.ts
+│   │   └── server.ts
+├── 📄 .env
+├── 📄 package.json
+├── 📄 package-lock.json
+├── 📄 tsconfig.json
+```
+
+---
+
 ## 🧪 Como Rodar o Projeto Localmente
 
 ### 1️⃣ Backend (API)
@@ -42,7 +81,7 @@ Bem-vindo(a) à **Biblioteca da Danielle Yasmin Dias Padilha**, um projeto compl
 git clone https://github.com/DanizitaDs
 
 # Acesse a pasta do projeto
-cd projeto-biblioteca/backend
+cd AtividadeAvaliativa
 
 # Instale as dependências
 npm install
@@ -83,5 +122,3 @@ Desenvolvido com 💛 por **Danielle Yasmin Dias Padilha**
 
 A todos os professores e colegas que acompanharam esse desenvolvimento 📘✨  
 Projeto avaliado como parte do conteúdo de aprendizado prático.
-
----
