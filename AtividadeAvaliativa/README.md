@@ -31,25 +31,6 @@ Bem-vindo(a) à **Biblioteca da Danielle Yasmin Dias Padilha**, um projeto compl
 
 ---
 
-## 📁 Estrutura do Projeto
-
-```bash
-📁 projeto-biblioteca/
-├── 📁 backend/
-│   ├── controller/
-│   ├── entity/
-│   ├── routes/
-│   └── index.ts
-├── 📁 frontend/
-│   ├── cadastrar.html
-│   ├── css/
-│   └── js/
-├── 📄 README.md
-└── 📦 package.json
-```
-
----
-
 ## 🧪 Como Rodar o Projeto Localmente
 
 ### 1️⃣ Backend (API)
