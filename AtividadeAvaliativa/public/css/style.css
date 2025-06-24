@@ -10,7 +10,7 @@
     margin: 0;
     font-family: 'Georgia', serif;
     color: var(--texto);
-    background-image: url('../img/biblioteca.png'); /* ajuste se necessário */
+    background-image: url('../img/biblioteca.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -25,7 +25,7 @@
   
   .container {
     background-color: rgba(255, 255, 255, 0.92);
-    padding: 40px;
+    padding: 30px;
     border-radius: 16px;
     max-width: 500px;
     width: 100%;
@@ -45,8 +45,8 @@
     text-align: center;
     color: var(--marrom-escuro);
     font-family: 'Times New Roman', serif;
-    margin-bottom: 10px;
-    font-size: 30px;
+    margin-bottom: 20px;
+    font-size: 45px;
   }
 
   form {
@@ -85,6 +85,33 @@
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
+
+  }
+  .editar{
+    margin-top: 20px;
+    padding: 12px;
+    background-color: var(--marrom-claro);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 20px;
+  }
+  .excluir{
+    margin-top: 20px;
+    padding: 12px;
+    background-color: var(--marrom-claro);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 20px;
   }
   
   button:hover {
@@ -123,7 +150,33 @@
     text-align: center;
   }
   
-  /* 🌐 Responsividade */
+  .tabela-livros {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  .tabela-livros th, .tabela-livros td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .tabela-livros thead {
+    background-color: #8a5836;
+    color: white;
+  }
+  
+  .tabela-livros tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .tabela-livros tbody tr:hover {
+    background-color: #ddd;
+  }
+  
+
   @media (max-width: 768px) {
     .container {
       padding: 25px 20px;
@@ -152,37 +205,5 @@
     .footer-corner-img {
       display: none;
     }
-  }
-  .tabela-livros {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-    font-family: Arial, sans-serif;
-  }
-  
-  .tabela-livros th, .tabela-livros td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .tabela-livros thead {
-    background-color: #8a5836;
-    color: white;
-  }
-  
-  .tabela-livros tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .tabela-livros tbody tr:hover {
-    background-color: #ddd;
-  }
-  
-  #mensagemSucesso {
-    font-weight: bold;
-    margin-top: 1rem;
-    font-family: Arial, sans-serif;
-    color: green;
   }
   

@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
   /**
    * Código responsável por reproduzir um som quando a página for clicada
    */
-  const som = document.getElementById('somPrincesa'); // Elemento de áudio com id 'somPrincesa'
+  const som = document.getElementById('somBiblioteca'); // Elemento de áudio com id 
   
   // Quando o usuário clicar em qualquer lugar da página, desativa o mute e inicia o som
   document.addEventListener('click', () => {
