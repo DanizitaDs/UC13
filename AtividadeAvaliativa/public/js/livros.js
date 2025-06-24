@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Referências aos elementos da página
   const createForm = document.getElementById("createForm"); // Formulário de cadastro/edição
-  const tabelaLivrosBody = document.querySelector("#tabelaLivros tbody"); // Corpo da tabela para listar livros
+  const tabelaLivrosBody = document.querySelector(".tabela-livros tbody");
+  // Corpo da tabela para listar livros
   const mensagemSucesso = document.getElementById("mensagemSucesso"); // Div para mensagens de sucesso/erro
   const cancelarEdicaoBtn = document.getElementById("cancelarEdicao"); // Botão para cancelar edição
   const hiddenId = document.getElementById("hiddenId"); // Input oculto para armazenar o id do livro durante edição
@@ -215,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function () {
    * Código responsável por reproduzir um som quando a página for clicada
    */
 const som = document.getElementById('somBiblioteca'); // Elemento de áudio com id 
-  
+
 // Quando o usuário clicar em qualquer lugar da página, desativa o mute e inicia o som
 document.addEventListener('click', () => {
   som.muted = false;
